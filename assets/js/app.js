@@ -77,7 +77,7 @@ d3.csv("assets/data/healthData.csv").then(function(healthData) {
     .attr("opacity", "1");
 
     // append abbriviations of states 
-    chartGroup.selectAll("text")
+    var abbrText = chartGroup.selectAll("text")
     .data(healthData)
     .enter()
     .append("text")
@@ -85,8 +85,9 @@ d3.csv("assets/data/healthData.csv").then(function(healthData) {
     .attr("y", d => yLinearScale(d.healthcare)+3)
     .attr("class", "stateAbbr")
     .text(d => d.abbr);
-        
-    // Step 6: Initialize tool tip
+        // Cant get all abbriviations to show!
+    
+        // Step 6: Initialize tool tip
     // ==============================
     var toolTip = d3.tip()
       .attr("class", "tooltip")
@@ -124,5 +125,5 @@ d3.csv("assets/data/healthData.csv").then(function(healthData) {
       .text("In Poverty (%)");
   }).catch(function(error) {
     console.log(error);
-  });
+  }); 
 
